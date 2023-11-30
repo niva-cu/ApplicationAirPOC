@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">ApplicationAirPOC</string>
+    <string name="activities_string1">Earned points from spending 100 on zoom car</string>
+    <string name="activities_string2">+13 POINTS</string>
+    <string name="activities_string3">Seat Upgraded</string>
+    <string name="activities_string4">Earned points and tier points</string>
+    <string name="activities_string5">Fri 27 Oct 2023</string>
+    <string name="activities_string6">Wed 05 Jul 2023</string>
+    <string name="activities_string7">Sat 30 Dec 2023</string>
+    <string name="activities_string8">-100 POINTS</string>
+    <string name="activities_string9">+16,000 POINTS</string>
+    <string name="activities_string10">+16,002 Tier Points</string>
+    <string name="activities_string11">DEL</string>
+    <string name="activities_string12">JFK</string>
+
+<!--
+    <?xml version="1.0" encoding="utf-8"?>-->
+
+
+        <string-array name="list_one_title">
+            <item>Place 1</item>
+            <item>Place 2</item>
+            <item>Place 3</item>
+            <item>Place 4</item>
+            <item>Place 5</item>
+
+            <item>Place 6</item>
+            <item>Place 7</item>
+            <item>Place 8</item>
+            <item>Place 9</item>
+            <item>Place 10</item>
+
+            <item>Place 11</item>
+            <item>Place 12</item>
+            <item>Place 13</item>
+            <item>Place 14</item>
+            <item>Place 15</item>
+
+            <item>Place 16</item>
+            <item>Place 17</item>
+            <item>Place 18</item>
+            <item>Place 19</item>
+            <item>Place 20</item>
+        </string-array>
+
+        <integer-array name="list_one_image">
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+            <item>@drawable/home</item>
+        </integer-array>
+</resources>
