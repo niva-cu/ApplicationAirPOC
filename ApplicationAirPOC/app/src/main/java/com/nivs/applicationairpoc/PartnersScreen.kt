@@ -1,13 +1,17 @@
 package com.nivs.applicationairpoc
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
@@ -27,6 +31,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,21 +58,21 @@ fun PartnersScreen(navController: NavHostController) {
         ) {
 
             var state = rememberPagerState(0)
-            val slideImage = remember { mutableStateOf(R.drawable.and1) }
+            val slideImage = remember { mutableStateOf(R.drawable.images) }
             HorizontalPager(count = 3, state = state,
                 modifier = Modifier.fillMaxWidth()) { page ->
                 when(page)  {
 
                     0 -> {
-                        slideImage.value = R.drawable.and1
+                        slideImage.value = R.drawable.images
                     }
 
                     1 -> {
-                        slideImage.value = R.drawable.icons_button
+                        slideImage.value = R.drawable.and1
                     }
 
                     2 -> {
-                        slideImage.value = R.drawable.and2
+                        slideImage.value = R.drawable.icons_button
                     }
                 }
 
@@ -77,31 +82,86 @@ fun PartnersScreen(navController: NavHostController) {
                         contentDescription = "",
                         Modifier
                             .fillMaxWidth()
-                            .fillMaxHeight(1f)
+                            .fillMaxHeight(1f),
+                        contentScale = ContentScale.Crop
                     )
                 }
-
             }
 
-            Row(
+            Column(
                 Modifier
                     .wrapContentWidth()
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 8.dp)
-            ) {
-                repeat(state.pageCount) { iteration ->
-                    val color = if (state.currentPage == iteration) Color.White else Color.LightGray
-                    Box(
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .padding(2.dp)
-                            .clip(CircleShape)
-                            .background(color)
-                            .size(6.dp)
-                    )
+                    .align(Alignment.BottomCenter)) {
+                Image(
+                    painter = painterResource(R.drawable.icons_button),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .padding(10.dp, 30.dp, 10.dp, 20.dp)
+                        .height(30.dp)
+                        .width(140.dp)
+                        .align(Alignment.CenterHorizontally),
+                    contentScale = ContentScale.Crop,
+                    //alignment = Alignment.Center
+                )
+
+                Text(
+                    text = "EARN 13 FLYING POINTS",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = Color.White,
+                    fontSize = 20.sp,
+                    modifier = Modifier
+                        .padding(28.dp, 8.dp, 28.dp, 0.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+
+                Text(
+                    text = "Earn 13 Return Points on Every Rs 100 spent",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = Color.White,
+                    fontSize = 12.sp,
+                    modifier = Modifier
+                        .padding(28.dp, 10.dp, 28.dp, 8.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(24.dp, 8.dp, 24.dp, 10.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        //containerColor =
+                        Color.Transparent
+                    ),
+                    border = BorderStroke(width = 2.dp, color = Color.White),
+                    shape = RoundedCornerShape(6.dp),
+                    onClick = {
+                    },
+                ) {
+                    Text("View Offer", fontSize = 18.sp, style = MaterialTheme.typography.labelLarge)
                 }
+
+                Row(
+                    Modifier
+                        .wrapContentWidth()
+                        .align(Alignment.CenterHorizontally)
+                        //.align(Alignment.BottomCenter)
+                        .padding(bottom = 8.dp)
+                ) {
+                    repeat(state.pageCount) { iteration ->
+                        val color =
+                            if (state.currentPage == iteration) Color.White else Color.LightGray
+                        Box(
+                            modifier = Modifier
+                                .wrapContentSize()
+                                .padding(2.dp)
+                                .clip(CircleShape)
+                                .background(color)
+                                .size(6.dp)
+                        )
+                    }
+                }
+                //Spacer(modifier = Modifier.padding(4.dp))
             }
-            Spacer(modifier = Modifier.padding(4.dp))
         }
 
         Card(
@@ -116,12 +176,23 @@ fun PartnersScreen(navController: NavHostController) {
                     .fillMaxWidth(1f)
                     .fillMaxHeight(1f)
             ) {
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Divider(
+                    color = AppLightGray,
+                    modifier = Modifier
+                        .width(80.dp)
+                        .height(2.dp)
+                        .align(Alignment.CenterHorizontally)
+                        //.padding(10.dp,10.dp,0.dp, 15.dp)
+
+                )
+               // Spacer(modifier = Modifier.height(20.dp))
 
                 Text(
-                    text = "PARTNERS OFFERS",
-                    style = MaterialTheme.typography.headlineLarge,
-
+                    text = "PARTNER OFFERS",
+                    style = MaterialTheme.typography.labelMedium,
+                    fontWeight = FontWeight.Bold,
                     fontSize = 16.sp,
                     modifier = Modifier.padding(18.dp)
                 )
