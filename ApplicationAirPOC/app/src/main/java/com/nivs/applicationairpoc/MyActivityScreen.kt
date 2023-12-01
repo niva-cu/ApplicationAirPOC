@@ -129,12 +129,8 @@ fun TabBarLayout() {
                     modifier = Modifier
                         .clip(RoundedCornerShape(90))
                         .padding(horizontal = 3.dp)
-                        .background(color = AppLightGray),
-
-                        /*.paint(painter = painterResource(id = R.drawable.ic_launcher_background)
-                                    )*/
-
-                    selectedContentColor = Color.Red,
+                        .background(if (tabIndex == index) Color.Red else AppLightGray),
+                    selectedContentColor = Color.White,
                     unselectedContentColor = Color.Black,
                 )
             }

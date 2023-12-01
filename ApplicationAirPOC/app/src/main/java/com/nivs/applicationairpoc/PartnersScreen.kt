@@ -1,8 +1,12 @@
 package com.nivs.applicationairpoc
 
+import androidx.compose.animation.core.animateDp
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
@@ -15,6 +19,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
+import androidx.compose.material3.TabPosition
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -213,7 +218,7 @@ fun PartnersScreen(navController: NavHostController) {
                             .wrapContentWidth()
                             .background(Color.White)
                             .clip(RoundedCornerShape(50))
-                            .padding(3.dp),
+                            .padding(3.dp,3.dp,3.dp,10.dp),
                         indicator = {
                             Box(
                                 Modifier
@@ -223,21 +228,20 @@ fun PartnersScreen(navController: NavHostController) {
                         },
                         containerColor = Color.White,
                         edgePadding = 0.dp
-
                     ) {
                         tabTitles.forEachIndexed { index, title ->
                             Tab(
                                 selected = tabIndex == index,
                                 onClick = { tabIndex = index },
-                                text = { Text(text = title) },
                                 modifier = Modifier
                                     .clip(RoundedCornerShape(90))
                                     .padding(horizontal = 3.dp)
-                                    .background(color = AppLightGray),
+                                    .background(if (tabIndex == index) Color.Red else AppLightGray),
                                 /*.paint(painter = painterResource(id = R.drawable.ic_launcher_background)
                                                 )*/
-                                selectedContentColor = Color.Red,
-                                unselectedContentColor = Color.Black,
+                                text = { Text(text = title) },
+                                selectedContentColor = Color.White,
+                                unselectedContentColor = Color.Black
                             )
                         }
                     }
@@ -282,9 +286,9 @@ fun CardItem(card: CardResponse) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(12.dp, 6.dp, 14.dp, 10.dp),
+            .padding(12.dp, 6.dp, 12.dp, 10.dp),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 6.dp
+            defaultElevation = 3.dp
         ),
         shape = RoundedCornerShape(10.dp)
     ) {
@@ -305,27 +309,28 @@ fun CardItem(card: CardResponse) {
                     painter = painterResource(R.drawable.home),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(50.dp)
+                        .size(40.dp)
                         .padding(8.dp),
                     contentScale = ContentScale.Fit,
                 )
                 Text(
                     text = "HSBC",
-                    style = MaterialTheme.typography.headlineSmall
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontSize = 18.sp
                 )
             }
-            Column(Modifier.padding(start = 12.dp, end = 8.dp, top = 16.dp, bottom = 16.dp)) {
+            Column(Modifier.padding(start = 12.dp, end = 8.dp, top = 16.dp, bottom = 12.dp)) {
                 Text(
                     text = "ZoomCar offers",
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontSize = 16.sp,
+                    style = MaterialTheme.typography.labelMedium,
+                    fontSize = 15.sp,
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 Text(
                     text = "Expiry Date is coming soon",
                     style = MaterialTheme.typography.headlineSmall,
-                    fontSize = 16.sp,
+                    fontSize = 14.sp,
                     color = Color.Gray
                 )
 
