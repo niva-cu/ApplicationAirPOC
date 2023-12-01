@@ -59,13 +59,6 @@ fun MyActivityPreview() {
         .background(color = AppBackgroundLightGray)
         .fillMaxWidth()) {
 
-        /*Image(painter = painterResource(id = R.drawable.and1),
-            contentDescription = "",
-            modifier = Modifier
-                .fillMaxHeight(.2f)
-                .fillMaxWidth(),
-            contentScale = ContentScale.Crop)*/
-
         Card(
             elevation = CardDefaults.cardElevation(
                 defaultElevation = 6.dp
@@ -86,7 +79,6 @@ fun MyActivityPreview() {
             )
         }
 
-
         TabBarLayout()
     }
 }
@@ -101,14 +93,14 @@ fun TabBarLayout() {
 
     Column(
         modifier = Modifier
-            .padding(12.dp, 0.dp, 12.dp, 0.dp),
+            .padding(12.dp, 0.dp, 14.dp, 0.dp),
     ) {
 
         ScrollableTabRow(selectedTabIndex = tabIndex, divider = {},
             modifier = Modifier
                 .wrapContentWidth()
                 .clip(RoundedCornerShape(50))
-                .padding(3.dp),
+                .padding(3.dp, 3.dp, 5.dp, 10.dp),
             indicator = {
                 Box(
                     Modifier

@@ -14,3 +14,4 @@ val AppLightGray = Color(0xFFDDDDDD)
 val AppBackgroundLightGray = Color(0xFFEEEEEE)
 
 val AppBackgroundGray = Color(0x22FEFEFE)
+val AppGreen = Color(0xFF579558)
