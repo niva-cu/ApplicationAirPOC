@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.nivs.applicationairpoc.DashBoard
+import com.nivs.applicationairpoc.ExplorePartnerScreen
 import com.nivs.applicationairpoc.MyActivityScreen
 import com.nivs.applicationairpoc.PartnersScreen
 
@@ -22,6 +23,10 @@ fun NavigationGraph(navController: NavHostController) {
 
         composable(route  = Routes.MyActivityScreen.route){
             MyActivityScreen(navController = navController)
+        }
+
+        composable(route  = Routes.ExplorePartnerScreen.route){
+            ExplorePartnerScreen(navController = navController)
         }
     }
 }

@@ -48,7 +48,7 @@ fun DashBoard(
         ) {
             Spacer(modifier = Modifier.height(10.dp))
             ClickableText(
-                text = AnnotatedString("Partners"),
+                text = AnnotatedString("Partners Offers"),
                 modifier = Modifier
                     .padding(10.dp),
                 style = TextStyle(fontSize = 20.sp, color = Color.Blue),
@@ -59,12 +59,23 @@ fun DashBoard(
 
             Spacer(modifier = Modifier.height(10.dp))
             ClickableText(
-                text = AnnotatedString("Activities"),
+                text = AnnotatedString("My Activities"),
                 modifier = Modifier
                     .padding(10.dp),
                 style = TextStyle(fontSize = 20.sp, color = Color.Blue),
                 onClick = {
                     navController.navigate(route = Routes.MyActivityScreen.route)
+                }
+            )
+
+            Spacer(modifier = Modifier.height(10.dp))
+            ClickableText(
+                text = AnnotatedString("Explore Partner"),
+                modifier = Modifier
+                    .padding(10.dp),
+                style = TextStyle(fontSize = 20.sp, color = Color.Blue),
+                onClick = {
+                    navController.navigate(route = Routes.ExplorePartnerScreen.route)
                 }
             )
         }
