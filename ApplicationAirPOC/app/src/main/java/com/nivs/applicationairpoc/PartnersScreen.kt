@@ -196,7 +196,6 @@ fun PartnersScreen(navController: NavHostController) {
                         //.padding(10.dp,10.dp,0.dp, 15.dp)
 
                 )
-               // Spacer(modifier = Modifier.height(20.dp))
 
                 Text(
                     text = "PARTNER OFFERS",
@@ -238,7 +237,7 @@ fun PartnersScreen(navController: NavHostController) {
                                 selected = tabIndex == index,
                                 onClick = { tabIndex = index },
                                 modifier = Modifier
-                                    .shadow(elevation = 6.dp, shape = RoundedCornerShape(100), ambientColor = Color.Green, spotColor = Color.Yellow )
+                                    .shadow(elevation = 1.dp, shape = RoundedCornerShape(100) )
                                     .padding(horizontal = 0.dp)
                                     .background(if (tabIndex == index) Color.Red else AppLightGray)
                                     .zIndex(2f),
