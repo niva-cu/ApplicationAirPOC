@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -175,7 +176,7 @@ fun PartnersLogo() {
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.Bottom,
             modifier = Modifier
-                .padding(20.dp, 0.dp, 20.dp, 0.dp)
+                .padding(8.dp, 0.dp, 8.dp, 0.dp)
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter),
 
@@ -244,7 +245,7 @@ fun ExpandableCard(globalText: String, spanStyles: List<AnnotatedString.Range<Sp
         ),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(20.dp)
             .background(Color.White),
         //.clickable {
         onClick = { expanded = !expanded }
@@ -275,7 +276,7 @@ fun ExpandableCard(globalText: String, spanStyles: List<AnnotatedString.Range<Sp
                     onClick = {
                     }) {
                     Icon(
-                        imageVector = Icons.Default.ArrowDropDown,
+                        imageVector = Icons.Default.KeyboardArrowUp,
                         contentDescription = "Drop-Down Arrow"
                     )
                 }
@@ -287,12 +288,12 @@ fun ExpandableCard(globalText: String, spanStyles: List<AnnotatedString.Range<Sp
                     .fillMaxWidth()
                     .height(1.dp)
             )
-            if (expanded) {
+            //if (expanded) {
                 Text(
                     text = AnnotatedString(text = globalText, spanStyles = spanStyles),
                     modifier = Modifier.padding(8.dp)
                 )
-            }
+         //   }
         }
     }
 }

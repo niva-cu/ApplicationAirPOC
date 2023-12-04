@@ -33,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -40,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -55,10 +57,10 @@ import com.nivs.applicationairpoc.ui.theme.AppLightGray
 //@Preview(name = "partnersScreen",showBackground = true)
 @Composable
 fun PartnersScreen(navController: NavHostController) {
-    Column(modifier = Modifier.background(color = AppLightGray)) {
+    Box(modifier = Modifier.background(color = AppLightGray)) {
         Box(
             modifier = Modifier
-                .fillMaxHeight(.3f)
+                .fillMaxHeight(.4f)
                 .fillMaxWidth(1f)
         ) {
 
@@ -101,7 +103,7 @@ fun PartnersScreen(navController: NavHostController) {
                     painter = painterResource(R.drawable.icons_button),
                     contentDescription = null,
                     modifier = Modifier
-                        .padding(10.dp, 30.dp, 10.dp, 20.dp)
+                        .padding(10.dp, 20.dp, 10.dp, 20.dp)
                         .height(30.dp)
                         .width(140.dp)
                         .align(Alignment.CenterHorizontally),
@@ -150,7 +152,7 @@ fun PartnersScreen(navController: NavHostController) {
                         .wrapContentWidth()
                         .align(Alignment.CenterHorizontally)
                         //.align(Alignment.BottomCenter)
-                        .padding(bottom = 8.dp)
+                        .padding(bottom =90.dp)
                 ) {
                     repeat(state.pageCount) { iteration ->
                         val color =
@@ -161,7 +163,7 @@ fun PartnersScreen(navController: NavHostController) {
                                 .padding(2.dp)
                                 .clip(CircleShape)
                                 .background(color)
-                                .size(6.dp)
+                                .size(5.dp)
                         )
                     }
                 }
@@ -173,7 +175,9 @@ fun PartnersScreen(navController: NavHostController) {
             elevation = CardDefaults.cardElevation(
                 defaultElevation = 6.dp
             ),
-            shape = RoundedCornerShape(20.dp)
+            shape = RoundedCornerShape(20.dp),
+            modifier = Modifier.align(Alignment.BottomCenter)
+                .fillMaxHeight(.7f)
         ) {
             Column(
                 modifier = Modifier
@@ -218,7 +222,7 @@ fun PartnersScreen(navController: NavHostController) {
                             .wrapContentWidth()
                             .background(Color.White)
                             .clip(RoundedCornerShape(50))
-                            .padding(3.dp,3.dp,3.dp,10.dp),
+                            .padding(4.dp,4.dp,4.dp,4.dp),
                         indicator = {
                             Box(
                                 Modifier
@@ -234,9 +238,10 @@ fun PartnersScreen(navController: NavHostController) {
                                 selected = tabIndex == index,
                                 onClick = { tabIndex = index },
                                 modifier = Modifier
-                                    .clip(RoundedCornerShape(90))
-                                    .padding(horizontal = 3.dp)
-                                    .background(if (tabIndex == index) Color.Red else AppLightGray),
+                                    .shadow(elevation = 6.dp, shape = RoundedCornerShape(100), ambientColor = Color.Green, spotColor = Color.Yellow )
+                                    .padding(horizontal = 0.dp)
+                                    .background(if (tabIndex == index) Color.Red else AppLightGray)
+                                    .zIndex(2f),
                                 /*.paint(painter = painterResource(id = R.drawable.ic_launcher_background)
                                                 )*/
                                 text = { Text(text = title) },
