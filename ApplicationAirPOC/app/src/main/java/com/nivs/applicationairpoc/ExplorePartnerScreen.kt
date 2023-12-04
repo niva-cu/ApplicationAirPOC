@@ -159,7 +159,7 @@ fun PartnersLogo() {
                 .fillMaxWidth()
                 .fillMaxHeight(.9f)
                 .background(color = Color.White),
-            shape = RoundedCornerShape(20.dp)
+            shape = RoundedCornerShape(0.dp, 0.dp, 30.dp, 30.dp)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.images),

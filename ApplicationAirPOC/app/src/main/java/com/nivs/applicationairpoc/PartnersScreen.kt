@@ -239,8 +239,8 @@ fun PartnersScreen(navController: NavHostController) {
                                 modifier = Modifier
                                     .shadow(elevation = 1.dp, shape = RoundedCornerShape(100) )
                                     .padding(horizontal = 0.dp)
-                                    .background(if (tabIndex == index) Color.Red else AppLightGray)
-                                    .zIndex(2f),
+                                    .background(if (tabIndex == index) Color.Red else AppLightGray),
+                                    //.zIndex(3f),
                                 /*.paint(painter = painterResource(id = R.drawable.ic_launcher_background)
                                                 )*/
                                 text = { Text(text = title) },
